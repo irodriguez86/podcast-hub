@@ -1,5 +1,5 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const path = require('path')
 
 module.exports = {
   entry: './index.js',
@@ -7,13 +7,14 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, './dist'),
     filename: 'index_bundle.js',
+    devtoolModuleFilenameTemplate: 'webpack:///[absolute-resource-path]',
   },
   target: 'web',
   devServer: {
     port: '5000',
     static: {
-      directory: path.join(__dirname, 'public')
-},
+      directory: path.join(__dirname, 'public'),
+    },
     open: true,
     hot: true,
     liveReload: true,
@@ -24,15 +25,16 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/, 
-        exclude: /node_modules/, 
-        use: 'babel-loader', 
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        use: 'babel-loader',
       },
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.join(__dirname, 'public', 'index.html')
-    })
-  ]
-};
+      template: path.join(__dirname, 'public', 'index.html'),
+    }),
+  ],
+  devtool: 'source-map',
+}
