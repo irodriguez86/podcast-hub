@@ -1,11 +1,17 @@
-import React from "react";
+import React from 'react'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Hub from './components/Hub'
+import PodcastDetail from './components/PodcastDetail'
 
-const App = () =>{
-    return (
-        <h1>
-            Hello world! I am using React
-        </h1>
-    )
+const App = () => {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Hub />} />
+        <Route path="/podcast" element={<PodcastDetail />} />
+      </Routes>
+    </BrowserRouter>
+  )
 }
 
 export default App
