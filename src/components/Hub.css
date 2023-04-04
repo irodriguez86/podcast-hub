@@ -1,0 +1,23 @@
+.main-cointainer {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.hub-title {
+    margin-bottom: 40px;
+    font-size: 1.3rem;
+    color: steelblue;
+    border-bottom: 2px solid #dfdfdf;
+}
+
+.podcast-hub-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-gap: 15px; 
+}
+
+@media (min-width: 800px) {
+    .podcast-hub-container {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
