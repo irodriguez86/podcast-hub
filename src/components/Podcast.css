@@ -52,3 +52,7 @@
     margin-top: 5px;
   }
   
+  .podcast-item-link {
+    color: inherit;
+    text-decoration: none;
+  }

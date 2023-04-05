@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
+import PodcastContext from '../context/PodcastContext';
 
 export type PodcastInfo = {
   id: number;
@@ -7,9 +8,8 @@ export type PodcastInfo = {
   image: string
 };
 
-
 export const useFetchPodcastList = () => {
-  const [podcastList, setPodcastList] = useState<PodcastInfo[]>([]);
+  const { podcastList, setPodcastList } = useContext(PodcastContext);
 
   useEffect(() => {
     fetch(
@@ -25,10 +25,11 @@ export const useFetchPodcastList = () => {
             image: entry['im:image'][2].label // We're using the 170x170 image here.
           };
         });
+        console.log(podcastInfoArray)
         setPodcastList(podcastInfoArray);
       })
       .catch(console.log)
-  }, [])
+  }, []) 
 
-  return podcastList
+  return podcastList;
 }
