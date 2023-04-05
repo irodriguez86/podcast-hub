@@ -1,12 +1,15 @@
-import React from 'react'
-import './Podcast.css'
+import React from 'react';
+import './Podcast.css';
 
-// A component that displays a podcast with its name, author, image and id
-function Podcast(props) {
-  // Destructure the props object to get the parameters
-  const { name, author, image } = props
+type PodcastProps = {
+  name: string;
+  author: string;
+  image: string;
+};
 
-  // Return the JSX element that renders the podcast
+function Podcast(props: PodcastProps) {
+  const { name, author, image } = props;
+
   return (
     <div className="podcast-item">
       <div className="podcast-item-image">
@@ -17,7 +20,7 @@ function Podcast(props) {
         <p className="podcast-item-author">Author: {author}</p>
       </div>
     </div>
-  )
+  );
 }
 
-export default Podcast
+export default Podcast;
