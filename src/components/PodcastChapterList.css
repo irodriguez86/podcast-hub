@@ -1,0 +1,50 @@
+.episodes {
+  margin: 2rem;
+}
+
+.episodes-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.episodes-list {
+  border-collapse: collapse;
+}
+
+.episodes-row-grey {
+  background-color: #f8f8f8;
+  border-bottom: 1px solid #ccc;
+}
+
+.episodes-row-white {
+  background-color: #fff;
+  border-bottom: 1px solid #ccc;
+}
+
+.episode-title-header,
+.episode-date-header,
+.episode-duration-header {
+  font-weight: bold;
+  padding: 0.5rem;
+  text-align: left;
+}
+
+.episode-title-cell,
+.episode-date-cell,
+.episode-duration-cell {
+  padding: 0.5rem;
+}
+
+.episodes-title-cell {
+  font-weight: bold;
+  padding: 0.5rem;
+}
+
+.episodes-date-cell {
+  padding: 0.5rem;
+}
+
+.episodes-duration-cell {
+  padding: 0.5rem;
+}
