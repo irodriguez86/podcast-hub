@@ -6,6 +6,7 @@
       "jsx": "react",
       "strict": true,
       "esModuleInterop": true,
+      "types": ["jest", "@testing-library/react"],
       "skipLibCheck": true,
       "forceConsistentCasingInFileNames": true,
       "moduleResolution": "node",
