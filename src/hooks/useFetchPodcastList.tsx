@@ -1,11 +1,21 @@
 import { useContext, useEffect, useState } from 'react'
 import PodcastContext from '../context/PodcastContext';
 
+export type Chapter = {
+  id: string;
+  title: string;
+  publishDate: string;
+  duration: number;
+};
+
 export type PodcastInfo = {
-  id: number;
+  id: string;
   name: string;
   artist: string
   image: string
+  description: string
+  publishDate: string
+  chapters: Chapter[]
 };
 
 export const useFetchPodcastList = () => {
@@ -22,10 +32,11 @@ export const useFetchPodcastList = () => {
             id: parseInt(entry.id.attributes['im:id']),
             name: entry['im:name'].label,
             artist: entry['im:artist'].label,
-            image: entry['im:image'][2].label // We're using the 170x170 image here.
+            image: entry['im:image'][2].label,
+            description: entry.summary.label,
+            publishDate: entry['im:releaseDate'].label
           };
         });
-        console.log(podcastInfoArray)
         setPodcastList(podcastInfoArray);
       })
       .catch(console.log)

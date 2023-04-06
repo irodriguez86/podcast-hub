@@ -2,8 +2,8 @@ import React from 'react';
 import './Podcast.css';
 import { Link } from 'react-router-dom';
 
-type PodcastProps = {
-  id: number;
+export type PodcastProps = {
+  id: string;
   name: string;
   author: string;
   image: string;
