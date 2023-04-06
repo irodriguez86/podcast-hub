@@ -1,7 +1,7 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Hub from './components/Hub'
-import PodcastDetail from './components/PodcastDetailView'
+import Hub from './views/Hub/Hub'
+import PodcastDetail from './views/PodcastDetail/PodcastDetail'
 import { PodcastProvider } from './context/PodcastContext'
 
 const App = () => {

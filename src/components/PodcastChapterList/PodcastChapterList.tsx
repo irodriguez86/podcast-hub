@@ -1,5 +1,5 @@
 import React from 'react'
-import { Chapter } from '../hooks/useFetchPodcastList'
+import { Chapter } from '../../hooks/useFetchPodcastList'
 import './PodcastChapterList.css'
 
 type PodcastChapterListProps = {

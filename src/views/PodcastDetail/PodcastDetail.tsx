@@ -1,12 +1,12 @@
 import React, { useContext, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import { useFetchPodcastChapters } from '../hooks/useFetchPodcastDetail'
-import PodcastContext from '../context/PodcastContext'
-import { Chapter, PodcastInfo } from '../hooks/useFetchPodcastList'
-import PodcastCard from './PodcastCard'
-import PodcastChapterList from './PodcastChapterList'
+import { useFetchPodcastChapters } from '../../hooks/useFetchPodcastDetail'
+import PodcastContext from '../../context/PodcastContext'
+import { Chapter, PodcastInfo } from '../../hooks/useFetchPodcastList'
+import PodcastCard from '../../components/PodcastCard/PodcastCard'
+import PodcastChapterList from '../../components/PodcastChapterList/PodcastChapterList'
 
-const PodcastDetailView = () => {
+const PodcastDetail = () => {
   const { id } = useParams<{ id: string }>()
   const { podcastList = [] } = useContext(PodcastContext)
   console.log('podcastList', podcastList)
@@ -14,23 +14,6 @@ const PodcastDetailView = () => {
     (podcast) => podcast.id == id
   )
   // TODO: check if the current podcast has already the chapters info, if not then fetch them and update the element
-
-  function formatDate(dateStr: string): string {
-    const date = new Date(dateStr)
-    const day = date.getDate()
-    const month = date.getMonth() + 1
-    const year = date.getFullYear()
-    return `${day}/${month}/${year}`
-  }
-
-  function formatDuration(durationMillis: number): string {
-    const hours = Math.floor(durationMillis / 3600000)
-    const minutes = Math.floor((durationMillis % 3600000) / 60000)
-    const seconds = Number(((durationMillis % 60000) / 1000).toFixed(0))
-    return `${hours ? hours + ':' : ''}${minutes < 10 ? '0' : ''}${minutes}:${
-      seconds < 10 ? '0' : ''
-    }${seconds}`
-  }
 
   if (typeof id === 'undefined') return <div>Loading...</div>
 
@@ -57,4 +40,4 @@ const PodcastDetailView = () => {
   )
 }
 
-export default PodcastDetailView
+export default PodcastDetail
