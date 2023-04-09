@@ -1,6 +1,7 @@
 import React from 'react'
 import { Chapter } from '../../hooks/useFetchPodcastList'
 import './PodcastChapterList.css'
+import { Link, useParams } from 'react-router-dom'
 
 type PodcastChapterListProps = {
   chapters: Chapter[]
@@ -26,6 +27,8 @@ function formatDuration(durationMillis: number): string {
 const PodcastChapterList: React.FC<PodcastChapterListProps> = ({
   chapters,
 }) => {
+  const { id: podcastId } = useParams<{ id: string }>()
+
   return (
     <div className="episodes">
       <h2 className="episodes-title">Episodes: {chapters.length}</h2>
@@ -46,7 +49,12 @@ const PodcastChapterList: React.FC<PodcastChapterListProps> = ({
               }
             >
               <td className="episode-title-cell">
-                <a href="#">{chapter.title}</a>
+                <Link
+                  to={`/chapter/${podcastId}/${chapter.id}`}
+                  className="chapter-link"
+                >
+                  {chapter.title}
+                </Link>
               </td>
               <td className="episode-date-cell">
                 {formatDate(chapter.publishDate)}

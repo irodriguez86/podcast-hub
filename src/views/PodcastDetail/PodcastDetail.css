@@ -1,0 +1,12 @@
+.detail-view-container {
+  display: flex;
+  justify-content: center;
+}
+
+.podcast-card-container {
+  width: 20%;
+}
+
+.episodes-table-container {
+  width: 55%;
+}

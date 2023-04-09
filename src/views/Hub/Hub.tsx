@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
 import Podcast from '../../components/Podcast/Podcast'
 import './Hub.css'
 import PodcastContext from '../../context/PodcastContext'
@@ -61,7 +60,6 @@ export const Hub: React.FC = () => {
             )
           })}
       </div>
-      <Link to="/podcast">Go to podcast page</Link>
     </div>
   )
 }
