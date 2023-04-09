@@ -1,9 +1,8 @@
 import React, { FC, useContext } from 'react'
 import { useParams } from 'react-router-dom'
 import PodcastContext from '../../context/PodcastContext'
-import { Chapter, PodcastInfo } from '../../hooks/useFetchPodcastList'
+import { PodcastInfo } from '../../hooks/useFetchPodcastList'
 import PodcastCard from '../../components/PodcastCard/PodcastCard'
-import { PodcastPlayer } from '../../components/ChapterDetail/ChapterPlayer'
 
 const ChapterDetail: FC = () => {
   const { podcastId, chapterId } = useParams<{

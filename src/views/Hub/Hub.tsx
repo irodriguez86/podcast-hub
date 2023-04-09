@@ -8,7 +8,7 @@ export const Hub: React.FC = () => {
   const { podcastList = [] } = useContext(PodcastContext)
   const [isLoading, setIsLoading] = useState(true)
   const [searchQuery, setSearchQuery] = useState('')
-
+  //TODO: check if we can do this only when podcastlist is null
   useFetchPodcastList()
 
   useEffect(() => {

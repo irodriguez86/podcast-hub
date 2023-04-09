@@ -1,13 +1,31 @@
 import { useState, useEffect, useContext } from 'react'
 import { Chapter } from './useFetchPodcastList'
 import PodcastContext from '../context/PodcastContext'
+import {
+  retrieveDataFromLocalStorage,
+  saveDataToLocalStorage,
+} from '../storage'
 
-export const useFetchPodcastChapters = (id: string): Chapter[] => {
+const PODCAST_CHAPTERS_KEY = 'podcastChapters'
+
+export const useFetchPodcastChapters = (id: string) => {
   const { chapters, setChapters, setIsLoading } = useContext(PodcastContext)
   const [podcastChapter, setPodcastChapter] = useState<Chapter[]>([])
 
   useEffect(() => {
     setIsLoading(true)
+
+    const localPodcastChaptersMap = retrieveDataFromLocalStorage()
+    const localPodcastChapters = localPodcastChaptersMap
+      ? localPodcastChaptersMap.get(id)
+      : null
+    if (localPodcastChaptersMap && localPodcastChapters) {
+      setChapters(localPodcastChaptersMap)
+      setPodcastChapter(localPodcastChapters)
+      setIsLoading(false)
+      return
+    }
+
     const fetchPodcastChapters = async () => {
       try {
         const response = await fetch(
@@ -31,6 +49,7 @@ export const useFetchPodcastChapters = (id: string): Chapter[] => {
 
         setPodcastChapter(podcastChapters)
         const updatedChapters = chapters.set(id, podcastChapters)
+        saveDataToLocalStorage(updatedChapters)
         setChapters(updatedChapters)
         setIsLoading(false)
       } catch (error) {
