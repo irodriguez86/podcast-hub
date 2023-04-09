@@ -40,7 +40,7 @@ const ChapterDetail: FC = () => {
         <div className="chapter-description">{currentChapter?.description}</div>
         <div className="chapter-player">
           {currentChapter && (
-            <PodcastPlayer src={currentChapter?.episode}></PodcastPlayer>
+            <audio src={currentChapter?.episode} controls={true} />
           )}
         </div>
       </div>
