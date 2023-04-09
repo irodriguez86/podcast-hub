@@ -21,9 +21,11 @@ export type PodcastInfo = {
 }
 
 export const useFetchPodcastList = () => {
-  const { podcastList, setPodcastList } = useContext(PodcastContext)
+  const { podcastList, setPodcastList, setIsLoading } =
+    useContext(PodcastContext)
 
   useEffect(() => {
+    setIsLoading(true)
     fetch(
       'https://itunes.apple.com/us/rss/toppodcasts/limit=100/genre=1310/json'
     )
@@ -42,6 +44,7 @@ export const useFetchPodcastList = () => {
           }
         )
         setPodcastList(podcastInfoArray)
+        setIsLoading(false)
       })
       .catch(console.log)
   }, [])

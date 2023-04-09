@@ -33,7 +33,6 @@ export const Hub: React.FC = () => {
 
   return (
     <div className="main-cointainer">
-      <h1 className="hub-title">Podcaster</h1>
       <div className="search-container">
         <div className="search-counter">
           {filteredPodcasts && filteredPodcasts.length}

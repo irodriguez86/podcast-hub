@@ -3,10 +3,11 @@ import { Chapter } from './useFetchPodcastList'
 import PodcastContext from '../context/PodcastContext'
 
 export const useFetchPodcastChapters = (id: string): Chapter[] => {
-  const { chapters, setChapters } = useContext(PodcastContext)
+  const { chapters, setChapters, setIsLoading } = useContext(PodcastContext)
   const [podcastChapter, setPodcastChapter] = useState<Chapter[]>([])
 
   useEffect(() => {
+    setIsLoading(true)
     const fetchPodcastChapters = async () => {
       try {
         const response = await fetch(
@@ -31,8 +32,10 @@ export const useFetchPodcastChapters = (id: string): Chapter[] => {
         setPodcastChapter(podcastChapters)
         const updatedChapters = chapters.set(id, podcastChapters)
         setChapters(updatedChapters)
+        setIsLoading(false)
       } catch (error) {
         console.error(error)
+        setIsLoading(false)
       }
     }
 

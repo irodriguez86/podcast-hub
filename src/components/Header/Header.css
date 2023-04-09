@@ -1,0 +1,41 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 1000px;
+  height: 60px;
+  padding: 0 20px;
+
+  margin-bottom: 5px;
+  font-size: 1.1rem;
+  color: steelblue;
+  border-bottom: 1px solid #dfdfdfb2;
+  margin: 0 auto 20px auto;
+}
+
+.header__title a {
+  font-size: 28px;
+  font-weight: bold;
+  color: #388ac1;
+  text-decoration: none;
+}
+
+.loading-circle {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #388ac1;
+  animation: pulse 1s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

@@ -1,12 +1,6 @@
 .detail-view-container {
+  width: 1000px;
+  margin: 0 auto;
   display: flex;
-  justify-content: center;
-}
-
-.podcast-card-container {
-  width: 20%;
-}
-
-.episodes-table-container {
-  width: 55%;
+  justify-content: space-between;
 }

@@ -1,42 +1,35 @@
 .main-cointainer {
-    max-width: 1000px;
-    margin: 0 auto;
-}
-
-.hub-title {
-    margin-bottom: 5px;
-    font-size: 1.3rem;
-    color: steelblue;
-    border-bottom: 2px solid #dfdfdf;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
 .search-container {
-    display: flex;
-    justify-content: flex-end;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .podcast-search {
-    margin: 0 5px;
+  margin: 0 5px;
 }
 
 .search-counter {
-    background-color: #3c78c7;
-    color: white;
-    padding: 2px;
-    border-radius: 25%;
-    font-weight: bold;
-    font-size: 0.9rem;
+  background-color: #3c78c7;
+  color: white;
+  padding: 2px;
+  border-radius: 25%;
+  font-weight: bold;
+  font-size: 0.9rem;
 }
 
 .podcast-hub-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    grid-gap: 15px; 
-    margin-top: 60px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-gap: 15px;
+  margin-top: 60px;
 }
 
 @media (min-width: 800px) {
-    .podcast-hub-container {
-      grid-template-columns: repeat(4, 1fr);
-    }
+  .podcast-hub-container {
+    grid-template-columns: repeat(4, 1fr);
   }
+}

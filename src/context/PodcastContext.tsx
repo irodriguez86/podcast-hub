@@ -7,6 +7,8 @@ type PodcastContextType = {
   length: number
   chapters: Map<string, Chapter[]>
   setChapters: React.Dispatch<React.SetStateAction<Map<string, Chapter[]>>>
+  isLoading: boolean
+  setIsLoading: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 type Props = {
@@ -19,11 +21,14 @@ export const PodcastContext = createContext<PodcastContextType>({
   length: 0,
   chapters: new Map(),
   setChapters: () => {},
+  isLoading: false,
+  setIsLoading: () => {},
 })
 
 export const PodcastProvider = ({ children }: Props): JSX.Element => {
   const [podcastList, setPodcastList] = useState<PodcastInfo[] | null>(null)
   const [chapters, setChapters] = useState<Map<string, Chapter[]>>(new Map())
+  const [isLoading, setIsLoading] = useState(false)
 
   return (
     <PodcastContext.Provider
@@ -33,6 +38,8 @@ export const PodcastProvider = ({ children }: Props): JSX.Element => {
         length: podcastList?.length ?? 0,
         chapters,
         setChapters,
+        isLoading,
+        setIsLoading,
       }}
     >
       {children}
