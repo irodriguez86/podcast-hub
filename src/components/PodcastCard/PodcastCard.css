@@ -16,7 +16,7 @@
   align-items: center;
   height: 200px;
   width: 220px;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #e1e1e1;
   padding-bottom: 10px;
 }
 
@@ -42,7 +42,7 @@
 
 .podcast-card-description {
   padding: 16px 0 0 0;
-  border-top: 1px solid #ccc;
+  border-top: 1px solid #e1e1e1;
 }
 
 .description-label {

@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom'
 import PodcastContext from '../../context/PodcastContext'
 import { PodcastInfo } from '../../hooks/useFetchPodcastList'
 import PodcastCard from '../../components/PodcastCard/PodcastCard'
+import './ChapterDetail.css'
 
 const ChapterDetail: FC = () => {
   const { podcastId, chapterId } = useParams<{
