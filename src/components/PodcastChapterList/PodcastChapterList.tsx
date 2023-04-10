@@ -32,40 +32,42 @@ const PodcastChapterList: React.FC<PodcastChapterListProps> = ({
   return (
     <div className="episodes">
       <h2 className="episodes-title">Episodes: {chapters.length}</h2>
-      <table className="episodes-list">
-        <thead>
-          <tr>
-            <th className="episode-title-header">Title</th>
-            <th className="episode-date-header">Date</th>
-            <th className="episode-duration-header">Duration</th>
-          </tr>
-        </thead>
-        <tbody>
-          {chapters.map((chapter, index) => (
-            <tr
-              key={chapter.id}
-              className={
-                index % 2 === 0 ? 'episodes-row-grey' : 'episodes-row-white'
-              }
-            >
-              <td className="episode-title-cell">
-                <Link
-                  to={`/chapter/${podcastId}/${chapter.id}`}
-                  className="chapter-link"
-                >
-                  {chapter.title}
-                </Link>
-              </td>
-              <td className="episode-date-cell">
-                {formatDate(chapter.publishDate)}
-              </td>
-              <td className="episode-duration-cell">
-                {formatDuration(chapter.duration)}
-              </td>
+      <div className="episodes-list-wrapper">
+        <table className="episodes-list">
+          <thead>
+            <tr>
+              <th className="episode-title-header">Title</th>
+              <th className="episode-date-header">Date</th>
+              <th className="episode-duration-header">Duration</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {chapters.map((chapter, index) => (
+              <tr
+                key={chapter.id}
+                className={
+                  index % 2 === 0 ? 'episodes-row-grey' : 'episodes-row-white'
+                }
+              >
+                <td className="episode-title-cell">
+                  <Link
+                    to={`/chapter/${podcastId}/${chapter.id}`}
+                    className="chapter-link"
+                  >
+                    {chapter.title}
+                  </Link>
+                </td>
+                <td className="episode-date-cell">
+                  {formatDate(chapter.publishDate)}
+                </td>
+                <td className="episode-duration-cell">
+                  {formatDuration(chapter.duration)}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   )
 }
