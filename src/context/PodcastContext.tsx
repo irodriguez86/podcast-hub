@@ -1,7 +1,7 @@
-import React, { ReactNode, createContext, useEffect, useState } from 'react'
+import React, { ReactNode, createContext, useState } from 'react'
 import { Chapter, PodcastInfo } from '../hooks/useFetchPodcastList'
 
-type PodcastContextType = {
+export type PodcastContextType = {
   podcastList: PodcastInfo[] | null
   setPodcastList: React.Dispatch<React.SetStateAction<PodcastInfo[] | null>>
   length: number

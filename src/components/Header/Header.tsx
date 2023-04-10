@@ -11,7 +11,9 @@ const Header: React.FC = () => {
       <div className="header__title">
         <Link to="/">Podcaster</Link>
       </div>
-      {isLoading && <div className="loading-circle"></div>}
+      {isLoading && (
+        <div className="loading-circle" data-testid="loading-circle" />
+      )}
     </div>
   )
 }
