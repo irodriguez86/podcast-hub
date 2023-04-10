@@ -22,6 +22,9 @@ const ChapterDetail: FC = () => {
     (chapter) => chapter.id == chapterId
   )
 
+  // Enable HTML interpretation, if the source weren't trustful we could sanitize the data
+  const descriptionMarkup = { __html: currentChapter?.description || '' }
+
   return (
     <div className="detail-view-container">
       <div className="podcast-card-container">
@@ -37,7 +40,10 @@ const ChapterDetail: FC = () => {
       </div>
       <div className="episode-container">
         <div className="chapter-title">{currentChapter?.title}</div>
-        <div className="chapter-description">{currentChapter?.description}</div>
+        <div
+          className="chapter-description"
+          dangerouslySetInnerHTML={descriptionMarkup}
+        />
         <div className="chapter-player">
           {currentChapter && (
             <audio src={currentChapter?.episode} controls={true} />
