@@ -13,6 +13,7 @@ module.exports = {
     '^.+\\.tsx?$': 'ts-jest',
     '^.+\\.css$': 'jest-css-modules-transform',
   },
+  setupFilesAfterEnv: ['@testing-library/jest-dom/extend-expect'],
 
   // The setupFilesAfterEnv config specifies any additional setup files
   // that should be run before Jest starts running tests
