@@ -13,11 +13,7 @@ const App = () => {
         <Header />
         <Routes>
           <Route path="/" element={<Hub />}></Route>
-          <Route path="/podcast/:id" element={<PodcastDetail />} />
-          <Route
-            path="/chapter/:podcastId/:chapterId"
-            element={<ChapterDetail />}
-          />
+          <Route path="/podcast/:podcastId/*" element={<PodcastDetail />} />
         </Routes>
       </BrowserRouter>
     </PodcastProvider>

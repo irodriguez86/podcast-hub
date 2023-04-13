@@ -7,7 +7,7 @@ type PodcastChapterListProps = {
   chapters: Chapter[]
 }
 
-function formatDate(dateStr: string): string {
+export function formatDate(dateStr: string): string {
   const date = new Date(dateStr)
   const day = date.getDate()
   const month = date.getMonth() + 1
@@ -15,7 +15,7 @@ function formatDate(dateStr: string): string {
   return `${day}/${month}/${year}`
 }
 
-function formatDuration(durationMillis: number): string {
+export function formatDuration(durationMillis: number): string {
   const hours = Math.floor(durationMillis / 3600000)
   const minutes = Math.floor((durationMillis % 3600000) / 60000)
   const seconds = Number(((durationMillis % 60000) / 1000).toFixed(0))
@@ -27,7 +27,7 @@ function formatDuration(durationMillis: number): string {
 const PodcastChapterList: React.FC<PodcastChapterListProps> = ({
   chapters,
 }) => {
-  const { id: podcastId } = useParams<{ id: string }>()
+  const { podcastId } = useParams<{ podcastId: string }>()
 
   return (
     <div className="episodes">
@@ -51,7 +51,7 @@ const PodcastChapterList: React.FC<PodcastChapterListProps> = ({
               >
                 <td className="episode-title-cell">
                   <Link
-                    to={`/chapter/${podcastId}/${chapter.id}`}
+                    to={`/podcast/${podcastId}/chapter/${chapter.id}`}
                     className="chapter-link"
                   >
                     {chapter.title}

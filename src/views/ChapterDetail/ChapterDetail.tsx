@@ -2,7 +2,6 @@ import React, { FC, useContext } from 'react'
 import { useParams } from 'react-router-dom'
 import PodcastContext from '../../context/PodcastContext'
 import { PodcastInfo } from '../../hooks/useFetchPodcastList'
-import PodcastCard from '../../components/PodcastCard/PodcastCard'
 import './ChapterDetail.css'
 
 const ChapterDetail: FC = () => {
@@ -26,29 +25,16 @@ const ChapterDetail: FC = () => {
   const descriptionMarkup = { __html: currentChapter?.description || '' }
 
   return (
-    <div className="detail-view-container">
-      <div className="podcast-card-container">
-        {currentPodcast && (
-          <PodcastCard
-            id={currentPodcast?.id}
-            name={currentPodcast?.name}
-            artist={currentPodcast?.artist}
-            image={currentPodcast?.image}
-            description={currentPodcast?.description}
-          ></PodcastCard>
+    <div className="episode-container">
+      <div className="chapter-title">{currentChapter?.title}</div>
+      <div
+        className="chapter-description"
+        dangerouslySetInnerHTML={descriptionMarkup}
+      />
+      <div className="chapter-player">
+        {currentChapter && (
+          <audio src={currentChapter?.episode} controls={true} />
         )}
-      </div>
-      <div className="episode-container">
-        <div className="chapter-title">{currentChapter?.title}</div>
-        <div
-          className="chapter-description"
-          dangerouslySetInnerHTML={descriptionMarkup}
-        />
-        <div className="chapter-player">
-          {currentChapter && (
-            <audio src={currentChapter?.episode} controls={true} />
-          )}
-        </div>
       </div>
     </div>
   )

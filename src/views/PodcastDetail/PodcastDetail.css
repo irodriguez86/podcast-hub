@@ -4,3 +4,11 @@
   display: flex;
   justify-content: space-between;
 }
+
+.podcast-card-container {
+  width: 31%;
+}
+
+.right-container {
+  width: 69%;
+}
