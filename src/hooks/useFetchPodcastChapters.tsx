@@ -5,8 +5,7 @@ import {
   retrieveDataFromLocalStorage,
   saveDataToLocalStorage,
 } from '../storage'
-
-const PODCAST_CHAPTERS_KEY = 'podcastChapters'
+import { fetchPodcastChapters } from '../api'
 
 export const useFetchPodcastChapters = (id: string) => {
   const { chapters, setChapters, setIsLoading } = useContext(PodcastContext)
@@ -26,26 +25,9 @@ export const useFetchPodcastChapters = (id: string) => {
       return
     }
 
-    const fetchPodcastChapters = async () => {
+    const loadPodcastChapters = async () => {
       try {
-        const response = await fetch(
-          `https://api.allorigins.win/get?url=${encodeURIComponent(
-            `https://itunes.apple.com/lookup?id=${id}&entity=podcastEpisode&limit=20`
-          )}`
-        )
-        const data = await response.json()
-        const contents = JSON.parse(data.contents)
-        const currentChapters = contents.results.slice(1)
-        const podcastChapters: Chapter[] = currentChapters.map(
-          (chapter: any) => ({
-            id: chapter.trackId,
-            title: chapter.trackName,
-            publishDate: chapter.releaseDate,
-            duration: chapter.trackTimeMillis,
-            description: chapter.description,
-            episode: chapter.episodeUrl,
-          })
-        )
+        const podcastChapters = await fetchPodcastChapters(id)
 
         setPodcastChapter(podcastChapters)
         const updatedChapters = chapters.set(id, podcastChapters)
@@ -58,7 +40,7 @@ export const useFetchPodcastChapters = (id: string) => {
       }
     }
 
-    fetchPodcastChapters()
+    loadPodcastChapters()
   }, [id])
 
   return podcastChapter
