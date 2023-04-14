@@ -5,7 +5,7 @@ import PodcastContext from '../../context/PodcastContext'
 import PodcastCard from '../../components/PodcastCard/PodcastCard'
 import PodcastChapterList from '../../components/PodcastChapterList/PodcastChapterList'
 import './PodcastDetail.css'
-import ChapterDetail from '../ChapterDetail/ChapterDetail'
+import ChapterDetail from '../../components/ChapterDetail/ChapterDetail'
 
 const PodcastDetail = () => {
   const { podcastId } = useParams<{ podcastId: string }>()

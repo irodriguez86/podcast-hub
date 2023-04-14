@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Hub from './views/Hub/Hub'
 import PodcastDetail from './views/PodcastDetail/PodcastDetail'
 import { PodcastProvider } from './context/PodcastContext'
-import ChapterDetail from './views/ChapterDetail/ChapterDetail'
+import ChapterDetail from './components/ChapterDetail/ChapterDetail'
 import Header from './components/Header/Header'
 
 const App = () => {
