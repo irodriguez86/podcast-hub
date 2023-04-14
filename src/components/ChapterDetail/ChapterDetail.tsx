@@ -9,12 +9,10 @@ const ChapterDetail: FC = () => {
     chapterId: string
   }>()
   const { chapters } = useContext(PodcastContext)
-
   const currentPodcastChapters = podcastId ? chapters?.get(podcastId) : null
   const currentChapter = currentPodcastChapters?.find(
     (chapter) => chapter.id == chapterId
   )
-
   // Enable HTML interpretation, if the source weren't trustful we could sanitize the data
   const descriptionMarkup = { __html: currentChapter?.description || '' }
 
@@ -27,7 +25,11 @@ const ChapterDetail: FC = () => {
       />
       <div className="chapter-player">
         {currentChapter && (
-          <audio src={currentChapter?.episode} controls={true} />
+          <audio
+            data-testid="chapter-audio"
+            src={currentChapter?.episode}
+            controls={true}
+          />
         )}
       </div>
     </div>
