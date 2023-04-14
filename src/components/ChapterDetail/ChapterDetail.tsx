@@ -1,7 +1,6 @@
 import React, { FC, useContext } from 'react'
 import { useParams } from 'react-router-dom'
 import PodcastContext from '../../context/PodcastContext'
-import { PodcastInfo } from '../../hooks/useFetchPodcastList'
 import './ChapterDetail.css'
 
 const ChapterDetail: FC = () => {
@@ -9,12 +8,7 @@ const ChapterDetail: FC = () => {
     podcastId: string
     chapterId: string
   }>()
-  const { podcastList = [], chapters } = useContext(PodcastContext)
-  const currentPodcast: PodcastInfo | undefined = podcastList?.find(
-    (podcast) => podcast.id == podcastId
-  )
-
-  if (typeof currentPodcast === 'undefined') return <div>Loading...</div>
+  const { chapters } = useContext(PodcastContext)
 
   const currentPodcastChapters = podcastId ? chapters?.get(podcastId) : null
   const currentChapter = currentPodcastChapters?.find(

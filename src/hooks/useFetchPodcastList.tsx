@@ -18,7 +18,6 @@ export type PodcastInfo = {
   image: string
   description: string
   publishDate: string
-  chapters: Chapter[]
 }
 
 type DataWithTimestamp = {
