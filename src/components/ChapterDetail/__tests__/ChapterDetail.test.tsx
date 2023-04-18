@@ -1,7 +1,7 @@
 import React from 'react'
 import { renderWithProviders } from '../../../utils/test-utils'
 import ChapterDetail from '../ChapterDetail'
-import { screen, waitFor } from '@testing-library/react'
+import { screen } from '@testing-library/react'
 
 // Mock the useParams hook
 jest.mock('react-router-dom', () => ({

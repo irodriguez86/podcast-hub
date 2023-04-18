@@ -1,5 +1,5 @@
 import React from 'react'
-import { getAllByRole, screen } from '@testing-library/react'
+import { screen } from '@testing-library/react'
 import PodcastChapterList from '../PodcastChapterList'
 import { renderWithProviders } from '../../../utils/test-utils'
 

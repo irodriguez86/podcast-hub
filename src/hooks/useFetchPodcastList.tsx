@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react'
+import { useContext, useEffect } from 'react'
 import PodcastContext from '../context/PodcastContext'
 import { fetchPodcastList } from '../api'
 
