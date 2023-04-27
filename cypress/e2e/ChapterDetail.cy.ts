@@ -3,7 +3,6 @@ describe('Chapter detail test', () => {
     // Access to chapter detail page before each test
     cy.visit('http://localhost:8080/')
     cy.get('.podcast-item').first().click()
-    cy.wait(5000)
     cy.get('.chapter-link').first().click()
   })
   it('should display the podcast detail card', () => {

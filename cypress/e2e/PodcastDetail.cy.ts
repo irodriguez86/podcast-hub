@@ -12,7 +12,6 @@ describe('PodcastDetail test', () => {
     cy.get('.podcast-card .podcast-card-author').should('be.visible')
   })
   it('should display the chapter table', () => {
-    cy.wait(5000)
     cy.get('.episodes').should('be.visible') // The chapter list at the right
     cy.get('.episodes-title').should('include', /Episodes:/) // Chapter list title
     cy.get('.episode-title-cell').should('be.visible') // Chapter name
@@ -20,7 +19,6 @@ describe('PodcastDetail test', () => {
     cy.get('.episode-duration-cell').should('be.visible') // Chapter duration
   })
   it('allows user to click on a chapter and navigate to chapter detail', () => {
-    cy.wait(5000)
     cy.get('.chapter-link').first().click()
     cy.url().should('include', /chapter/)
   })
