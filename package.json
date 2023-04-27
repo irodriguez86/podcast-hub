@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "start": "webpack serve --open",
-    "build": "webpack",
+    "start": "webpack-dev-server --open --config webpack.config.dev.js",
+    "build": "webpack --config webpack.config.prod.js",
     "e2e": "cypress open",
     "prettier": "prettier --write \"src/**/*.js\""
   },
@@ -35,8 +35,10 @@
     "jest": "^29.5.0",
     "jest-css-modules-transform": "^4.4.2",
     "jest-environment-jsdom": "^29.5.0",
+    "mini-css-extract-plugin": "^2.7.5",
     "prettier": "^2.8.7",
     "style-loader": "^3.3.2",
+    "terser-webpack-plugin": "^5.3.7",
     "ts-jest": "^29.1.0",
     "ts-loader": "^9.4.2",
     "typescript": "^5.0.3",
@@ -45,6 +47,7 @@
     "webpack-dev-server": "^4.13.2"
   },
   "dependencies": {
+    "css-minimizer-webpack-plugin": "^5.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.10.0"
