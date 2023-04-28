@@ -6,6 +6,7 @@ import PodcastCard from '../../components/PodcastCard/PodcastCard'
 import PodcastChapterList from '../../components/PodcastChapterList/PodcastChapterList'
 import './PodcastDetail.css'
 import ChapterDetail from '../../components/ChapterDetail/ChapterDetail'
+import { useFetchPodcastList } from '../../hooks/useFetchPodcastList'
 
 const PodcastDetail = () => {
   const { podcastId } = useParams<{ podcastId: string }>()
@@ -13,6 +14,7 @@ const PodcastDetail = () => {
   const currentPodcast = podcastList?.find((podcast) => podcast.id == podcastId)
   const currentChapters = podcastId ? chapters.get(podcastId) : []
 
+  !currentPodcast && useFetchPodcastList()
   podcastId && !currentChapters && useFetchPodcastChapters(podcastId)
 
   return (

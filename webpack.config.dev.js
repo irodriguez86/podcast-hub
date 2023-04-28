@@ -20,8 +20,12 @@ module.exports = {
       },
     ],
   },
+  devServer: {
+    historyApiFallback: true,
+  },
   output: {
     path: path.resolve(__dirname, 'dist'),
+    publicPath: '/',
     filename: 'bundle.js',
     devtoolModuleFilenameTemplate: 'webpack:///[absolute-resource-path]',
   },
