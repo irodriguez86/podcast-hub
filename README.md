@@ -31,11 +31,25 @@ This will create a `build` folder in the root of your project with the compiled 
 
 ## Testing
 
-This project uses React Testing Library for testing. To run the tests, run:
+This project uses React Testing Library for unit testing and Cypress for end-to-end testing.
+
+### Running Unit Tests
 
 `npm test`
 
-This will start the test runner and run all the tests in the `src` folder. You can add new tests by creating files with the extension `.test.js` in the `src` folder.
+This will start the test runner and run all the tests in the `src` folder.
+
+### Running End-to-End Tests
+
+To run the end-to-end tests with Cypress, first start the development server by executing the following command:
+
+`npm start`
+
+Once the server is up and running, execute the following command to open Cypress:
+
+`npm run e2e`
+
+This will open the Cypress Test Runner, then select `E2E Testing` where you can select and run the tests from the `cypress/e2e` folder. You can add new tests by creating files with the extension `.cy.ts` in the `cypress/e2e` folder.
 
 ## Credits
 
