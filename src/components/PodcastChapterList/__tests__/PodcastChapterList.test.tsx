@@ -37,7 +37,6 @@ describe('PodcastChapterList', () => {
   })
   it('should render the publish date of each episode', () => {
     renderWithProviders(<PodcastChapterList chapters={testChapters} />)
-    screen.debug()
     const episode1PublishDate = screen.getByText('1/1/2022')
     expect(episode1PublishDate).toBeInTheDocument()
     const episode2PublishDate = screen.getByText('8/1/2022')

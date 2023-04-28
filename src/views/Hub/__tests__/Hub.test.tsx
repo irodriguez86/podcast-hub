@@ -4,6 +4,10 @@ import userEvent from '@testing-library/user-event'
 import { renderWithProviders } from '../../../utils/test-utils'
 import Hub from '../Hub'
 
+jest.mock('../../../hooks/useFetchPodcastList', () => ({
+  useFetchPodcastList: jest.fn()
+}))
+
 const mockPodcasts = [
   {
     id: '1',
