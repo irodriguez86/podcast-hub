@@ -5,7 +5,7 @@ import { renderWithProviders } from '../../../utils/test-utils'
 import Hub from '../Hub'
 
 jest.mock('../../../hooks/useFetchPodcastList', () => ({
-  useFetchPodcastList: jest.fn()
+  useFetchPodcastList: jest.fn(),
 }))
 
 const mockPodcasts = [

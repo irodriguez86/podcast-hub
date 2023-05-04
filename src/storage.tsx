@@ -1,4 +1,4 @@
-import { Chapter, PodcastInfo } from './hooks/useFetchPodcastList'
+import { Chapter } from './hooks/useFetchPodcastList'
 
 type DataWithExpiration = {
   data: Chapter[]

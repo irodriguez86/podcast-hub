@@ -1,16 +1,16 @@
-import React from 'react';
-import './Podcast.css';
-import { Link } from 'react-router-dom';
+import React from 'react'
+import './Podcast.css'
+import { Link } from 'react-router-dom'
 
 export type PodcastProps = {
-  id: string;
-  name: string;
-  author: string;
-  image: string;
-};
+  id: string
+  name: string
+  author: string
+  image: string
+}
 
 function Podcast(props: PodcastProps) {
-  const { id, name, author, image } = props;
+  const { id, name, author, image } = props
 
   return (
     <Link to={`/podcast/${id}`} className="podcast-item-link">
@@ -24,7 +24,7 @@ function Podcast(props: PodcastProps) {
         </div>
       </div>
     </Link>
-  );
+  )
 }
 
-export default Podcast;
+export default Podcast
